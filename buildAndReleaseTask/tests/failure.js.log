@@ -1,0 +1,14 @@
+##vso[task.debug]agent.TempDirectory=undefined
+##vso[task.debug]agent.workFolder=undefined
+##vso[task.debug]loading inputs and endpoints
+##vso[task.debug]loading INPUT_SAMPLESTRING
+##vso[task.debug]loaded 1
+##vso[task.debug]Agent.ProxyUrl=undefined
+##vso[task.debug]Agent.CAInfo=undefined
+##vso[task.debug]Agent.ClientCert=undefined
+##vso[task.debug]Agent.SkipCertValidation=undefined
+##vso[task.debug]samplestring=bad
+##vso[task.debug]task result: Failed
+##vso[task.issue type=error;]Bad input was given
+##vso[task.complete result=Failed;]Bad input was given
+
