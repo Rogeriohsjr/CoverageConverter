@@ -1,1 +1,4 @@
 node_modules
+tests/*.js
+tests/*.log
+*.js
