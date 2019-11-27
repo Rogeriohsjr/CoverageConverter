@@ -6,7 +6,7 @@ async function run() {
     try {
         console.log('Starting Code Coverage...');
         
-        // 1. Execute Code Coverage Collect
+        // 1. Execute VSTest.exe to generate the blabla.coverage file
         executeVsTestCodeCoverage();
 
         console.log('Ended Code Coverage.');
