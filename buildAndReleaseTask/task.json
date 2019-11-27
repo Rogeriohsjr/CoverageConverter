@@ -10,7 +10,7 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 11
+        "Patch": 13
     },
     "instanceNameFormat": "Echo $(samplestring)",
     "inputs": [
@@ -20,7 +20,7 @@
             "label": "Code Coverage Exe File Location",
             "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Dynamic Code Coverage Tools\\CodeCoverage.exe",
             "required": true,
-            "helpMarkDown": "Change if needed"
+            "helpMarkDown": "Change if needed, the VS is installed by default in windows machine."
         },
         {
             "name": "vsTestExeFileLocation",
@@ -28,7 +28,7 @@
             "label": "vsTest Exe File Location",
             "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe",
             "required": true,
-            "helpMarkDown": "Change if needed"
+            "helpMarkDown": "Change if needed, the VS is installed by default in windows machine."
         },
         {
             "name": "listTestFiles",
@@ -38,7 +38,7 @@
             "required": true,
             "helpMarkDown": "Change if needed",
             "properties": {
-                "rows": "3",
+                "rows": "1",
                 "resizable": "true"
             }
         }

@@ -1,0 +1,9 @@
+# Task Name
+- task: CoverageConverter@0
+  inputs:
+    # This is the CodeCoverage.exe location, if you have Azure Agent, you should have this path
+    codeCoverageExeFileLocation: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Team Tools\Dynamic Code Coverage Tools\CodeCoverage.exe'
+    # This is the VSTest.console.exe location, if you have Azure Agent, you should have this path as well.
+    vsTestExeFileLocation: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe'
+    # This where the Test File is located because we will need to run the Unit Test again to get the code coverage.
+    listTestFiles: '**\\bin\\**\\*.Tests*.dll'

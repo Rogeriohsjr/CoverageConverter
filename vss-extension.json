@@ -1,15 +1,15 @@
 {
     "manifestVersion": 1,
     "id": "build-release-task",
-    "name": "Rogerio - CoverageConverter",
-    "version": "0.1.11",
+    "name": "Coverage Converter",
+    "version": "0.1.13",
     "publisher": "rogeriohsjr",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Test CoverageConverter. Includes one build/release task.",
+    "description": "Converts .coverage file into XML for Report",
     "categories": [
         "Azure Pipelines"
     ],

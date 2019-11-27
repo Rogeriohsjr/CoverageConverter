@@ -9,8 +9,6 @@ async function run() {
         // 1. Execute Code Coverage Collect
         executeVsTestCodeCoverage();
 
-        
-
         console.log('Ended Code Coverage.');
     }
     catch (err) {
@@ -19,7 +17,7 @@ async function run() {
 }
 
 function executeVsTestCodeCoverage(){
-    console.log('Starting executeCodeCoverageCollect...');
+    console.log('Starting executeVsTestCodeCoverage...');
     const vsTestExeFileLocation: string = tl.getInput('vsTestExeFileLocation', true);
     const coverageCommand: string = "/EnableCodeCoverage ";
     const listFiles : string[] = findTestFiles();
@@ -39,46 +37,16 @@ function executeVsTestCodeCoverage(){
         });
     });
 
-    console.log('Ended executeCodeCoverageCollect...');
-}
-
-function executeCodeCoverageCollect(){
-    console.log('Starting executeCodeCoverageCollect...');
-    const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
-    const coverageCommand: string = "collect /output:\"" + getTemporaryDirectory() +"\\TestResults\\DynamicCodeCoverage.coverage\"";
-    const listFiles : string[] = findTestFiles();
-
-    listFiles.forEach(pPathFile => {
-        console.log('--> Analyzing file [' + pPathFile + ']');
-        exec('"' + codeCoverageExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-            console.error(`stderr: ${stderr}`);
-
-            // 2. Execute Code Coverage Analyze
-            executeCodeCoverageAnalyze();
-        });
-    });
-
-    console.log('Ended executeCodeCoverageCollect...');
+    console.log('Ended executeVsTestCodeCoverage...');
 }
 
 function getTemporaryDirectory(){
     var tempDirectory: string = tl.getVariable('Agent.TempDirectory');
-    // Temporary
-    tempDirectory = "C:\\Workspace\\TaskAzureDevOps\\Temp";
-
     return tempDirectory;
 }
 
 function getWorkDirectory(){
     var workingDirectory: string = tl.getVariable('Sytem.DefaultWorkingDirectory');
-    // Temporary
-    workingDirectory = "C:\\Workspace\\TestAspWebApp\\TestAspWebApp";
-
     return workingDirectory;
 }
 
@@ -86,16 +54,18 @@ function executeCodeCoverageAnalyze(){
     console.log('Starting executeCodeCoverageAnalyze...');
 
     const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
-    const command : string =  "analyze /output:" + getTemporaryDirectory() + "\\TestResults\\DynamicCodeCoverage.coveragexml " + 
-                              '"' + getTemporaryDirectory() + '\\TestResults\\DynamicCodeCoverage.coverage"';
-        
-    exec('"' + codeCoverageExeFileLocation + '" ' + command, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
+    const command : string =  "analyze /output:" + getTemporaryDirectory() + "\\TestResults\\DynamicCodeCoverage.coveragexml";
+    
+    const listFiles : string[] = findCoverageFiles();
+    listFiles.forEach(pPathFile => {
+        exec('"' + codeCoverageExeFileLocation + '" ' + command + ' "' + pPathFile + '"', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`exec error: ${error}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            console.error(`stderr: ${stderr}`);
+        });
     });
 
     console.log('Ended executeCodeCoverageAnalyze...');
@@ -118,46 +88,21 @@ function findTestFiles(){
     return matchingTestResultsFiles;
 }
 
-function resolveSummaryFiles(workingDirectory: string, summaryFiles: string): string[] {
-    if(summaryFiles) {
-        const summaryFilesArray = summaryFiles.trim().split('\n').filter((pattern) => pattern.trim() != "");
-        const resolvedSummaryFiles: string[] = [];
+function findCoverageFiles(){
 
-        if(summaryFilesArray.length > 0) {
-            summaryFilesArray.forEach(filePattern => {
-                const findOptions: tl.FindOptions = { allowBrokenSymbolicLinks: false, followSymbolicLinks: false, followSpecifiedSymbolicLink: false };
-                const pathMatches: string[] = tl.findMatch(
-                    workingDirectory,
-                    filePattern,
-                    findOptions);
-                
-                console.log(tl.loc('FoundNMatchesForPattern', pathMatches.length, filePattern));
+    var searchFolder: string = getWorkDirectory();
+    var listTestFiles : string[] = ['**\\TestResults\\**\\*.coverage'];
+    
+    // Sending allowBrokenSymbolicLinks as true, so we don't want to throw error when symlinks are broken.
+    // And can continue with other files if there are any.
+    const findOptions = <tl.FindOptions>{
+        allowBrokenSymbolicLinks: true,
+        followSpecifiedSymbolicLink: true,
+        followSymbolicLinks: true
+    }; 
 
-                pathMatches.forEach(path => {
-                    if(pathExistsAsFile(path)) {
-                        if(path.indexOf(".coverage") != -1){
-                            resolvedSummaryFiles.push(path);
-                            console.log(path);
-                        }
-                    }
-                });
-            });
-
-            return resolvedSummaryFiles;
-        }
-    }
-
-    return [];
-}
-
-// Gets whether the specified path exists as file.
-function pathExistsAsFile(path: string) {
-    try {
-        return tl.stats(path).isFile();
-    } catch (error) {
-        tl.debug(error);
-        return false;
-    }
+    const matchingTestResultsFiles = tl.findMatch(searchFolder, listTestFiles, findOptions);
+    return matchingTestResultsFiles;
 }
 
 run();
