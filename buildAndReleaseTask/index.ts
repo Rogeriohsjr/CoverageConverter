@@ -23,7 +23,7 @@ function executeVsTestCodeCoverage(){
     const listFiles : string[] = findTestFiles();
 
     listFiles.forEach(pPathFile => {
-        console.log('--> Analyzing file [' + pPathFile + ']');
+        console.log('Generating coverage for file [' + pPathFile + ']');
         exec('"' + vsTestExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"', (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
@@ -41,23 +41,19 @@ function executeVsTestCodeCoverage(){
 }
 
 function getTemporaryDirectory(){
-    var tempDirectory: string = tl.getVariable('Agent.TempDirectory');
+    var tempDirectory: string = tl.getVariable(tl.getInput('temporaryFolderForCodeCoverage', true));
     return tempDirectory;
-}
-
-function getWorkDirectory(){
-    var workingDirectory: string = tl.getVariable('Sytem.DefaultWorkingDirectory');
-    return workingDirectory;
 }
 
 function executeCodeCoverageAnalyze(){
     console.log('Starting executeCodeCoverageAnalyze...');
 
     const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
-    const command : string =  "analyze /output:" + getTemporaryDirectory() + "\\TestResults\\DynamicCodeCoverage.coveragexml";
+    const command : string =  "analyze /output:" + getTemporaryDirectory() + tl.getInput('temporaryFileCoveragexml', true);
     
     const listFiles : string[] = findCoverageFiles();
     listFiles.forEach(pPathFile => {
+        console.log('Converting this file[' + pPathFile + '] to fileCoverageXml');
         exec('"' + codeCoverageExeFileLocation + '" ' + command + ' "' + pPathFile + '"', (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
@@ -72,34 +68,25 @@ function executeCodeCoverageAnalyze(){
 }
 
 function findTestFiles(){
-
     var searchFolder: string = tl.getInput('searchFolderForTestFiles');
     var listTestFiles : string[] = tl.getDelimitedInput('listTestFiles', '\n', true);
-    
-    // Sending allowBrokenSymbolicLinks as true, so we don't want to throw error when symlinks are broken.
-    // And can continue with other files if there are any.
-    const findOptions = <tl.FindOptions>{
-        allowBrokenSymbolicLinks: true,
-        followSpecifiedSymbolicLink: true,
-        followSymbolicLinks: true
-    }; 
-
-    const matchingTestResultsFiles = tl.findMatch(searchFolder, listTestFiles, findOptions);
-    return matchingTestResultsFiles;
+    return findFiles(searchFolder, listTestFiles);
 }
 
 function findCoverageFiles(){
-
-    var searchFolder: string = getWorkDirectory();
+    var searchFolder: string = tl.getInput('searchFolderForTestFiles');
     var listTestFiles : string[] = ['**\\TestResults\\**\\*.coverage'];
-    
+    return findFiles(searchFolder, listTestFiles);
+}
+
+function findFiles(searchFolder, listTestFiles){
     // Sending allowBrokenSymbolicLinks as true, so we don't want to throw error when symlinks are broken.
     // And can continue with other files if there are any.
     const findOptions = <tl.FindOptions>{
         allowBrokenSymbolicLinks: true,
         followSpecifiedSymbolicLink: true,
         followSymbolicLinks: true
-    }; 
+    };
 
     const matchingTestResultsFiles = tl.findMatch(searchFolder, listTestFiles, findOptions);
     return matchingTestResultsFiles;

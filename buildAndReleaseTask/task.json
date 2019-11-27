@@ -20,7 +20,7 @@
             "label": "Search Folder for Test Files",
             "defaultValue": "$(System.DefaultWorkingDirectory)",
             "required": true,
-            "helpMarkDown": "This should be the root for find the Test Files. This is not the full path."
+            "helpMarkDown": "This should be the root for find the Test Files. This is not the full path. This also will be used to find the .coverage file."
         },
         {
             "name": "vsTestExeFileLocation",
@@ -46,9 +46,25 @@
             "required": true,
             "helpMarkDown": "Change if needed",
             "properties": {
-                "rows": "1",
+                "rows": "3",
                 "resizable": "true"
             }
+        },
+        {
+            "name": "temporaryFolderForCodeCoverage",
+            "type": "string",
+            "label": "Temporary Code Coverage File Location",
+            "defaultValue": "Agent.TempDirectory",
+            "required": true,
+            "helpMarkDown": ""
+        },
+        {
+            "name": "temporaryFileCoveragexml",
+            "type": "string",
+            "label": "Temporary CoverageXml File Location",
+            "defaultValue": "\\TestResults\\DynamicCodeCoverage.coveragexml",
+            "required": true,
+            "helpMarkDown": "The begin will be the temporaryFolderForCodeCoverage + whatever you add here e.g $(Agent.TempDirectory)\\TestResults\\DynamicCodeCoverage.coveragexml, where $(Agent.TempDirectory) will be something like d:\\a\\1"
         },
         {
             "name": "codeCoverageExeFileLocation",
