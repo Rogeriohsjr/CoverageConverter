@@ -19,7 +19,7 @@ async function run() {
 function executeVsTestCodeCoverage(){
     console.log('Starting executeVsTestCodeCoverage...');
     const vsTestExeFileLocation: string = tl.getInput('vsTestExeFileLocation', true);
-    const coverageCommand: string = "/EnableCodeCoverage ";
+    const coverageCommand: string = tl.getInput('vsTestArgs', true);
     const listFiles : string[] = findTestFiles();
 
     listFiles.forEach(pPathFile => {
@@ -73,7 +73,7 @@ function executeCodeCoverageAnalyze(){
 
 function findTestFiles(){
 
-    var searchFolder: string = getWorkDirectory();
+    var searchFolder: string = tl.getInput('searchFolderForTestFiles');
     var listTestFiles : string[] = tl.getDelimitedInput('listTestFiles', '\n', true);
     
     // Sending allowBrokenSymbolicLinks as true, so we don't want to throw error when symlinks are broken.

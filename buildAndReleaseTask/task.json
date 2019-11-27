@@ -15,12 +15,12 @@
     "instanceNameFormat": "Echo $(samplestring)",
     "inputs": [
         {
-            "name": "codeCoverageExeFileLocation",
+            "name": "searchFolderForTestFiles",
             "type": "string",
-            "label": "Code Coverage Exe File Location",
-            "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Dynamic Code Coverage Tools\\CodeCoverage.exe",
+            "label": "Search Folder for Test Files",
+            "defaultValue": "$(System.DefaultWorkingDirectory)",
             "required": true,
-            "helpMarkDown": "Change if needed, the VS is installed by default in windows machine."
+            "helpMarkDown": "This should be the root for find the Test Files. This is not the full path."
         },
         {
             "name": "vsTestExeFileLocation",
@@ -29,6 +29,14 @@
             "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe",
             "required": true,
             "helpMarkDown": "Change if needed, the VS is installed by default in windows machine."
+        },
+        {
+            "name": "vsTestArgs",
+            "type": "string",
+            "label": "vsTest Args",
+            "defaultValue": "/EnableCodeCoverage",
+            "required": true,
+            "helpMarkDown": "This will generate the .coverage file"
         },
         {
             "name": "listTestFiles",
@@ -41,6 +49,14 @@
                 "rows": "1",
                 "resizable": "true"
             }
+        },
+        {
+            "name": "codeCoverageExeFileLocation",
+            "type": "string",
+            "label": "Code Coverage Exe File Location",
+            "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Dynamic Code Coverage Tools\\CodeCoverage.exe",
+            "required": true,
+            "helpMarkDown": "Change if needed, the VS is installed by default in windows machine."
         }
     ],
     "execution": {
