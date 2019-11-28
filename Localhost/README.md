@@ -7,6 +7,9 @@ https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view
 https://marketplace.visualstudio.com/manage/publishers/rogeriohsjr
 
 # Help Commands to execute in localhost
+$env:INPUT_SEARCHFOLDERFORTESTFILES=""
+$env:INPUT_VSTESTEXEFILELOCATION="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe"
+$env:INPUT_VSTESTARGS="/EnableCodeCoverage"
 $env:INPUT_CODECOVERAGEEXEFILELOCATION="C:\Workspace\CoverageConverterCore\CoverageConverter\CoverageConverter\bin\Release\netcoreapp3.0\publish\CodeCoverage\CodeCoverage.exe"
 $env:INPUT_LISTTESTFILES="**\\bin\\**\\*.Tests*.dll"
 $env:INPUT_VSTESTEXEFILELOCATION="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe"

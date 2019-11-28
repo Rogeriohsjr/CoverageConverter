@@ -2,13 +2,13 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "Coverage Converter",
-    "version": "0.1.13",
+    "version": "0.1.14",
     "publisher": "rogeriohsjr",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
+    ],
     "description": "Converts .coverage file into XML for Report",
     "categories": [
         "Azure Pipelines"
