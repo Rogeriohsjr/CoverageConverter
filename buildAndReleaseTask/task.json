@@ -51,6 +51,14 @@
             }
         },
         {
+            "name": "searchFolderForCodeCoverageFile",
+            "type": "string",
+            "label": "Search Folder for Test Files",
+            "defaultValue": "$(System.DefaultWorkingDirectory)",
+            "required": true,
+            "helpMarkDown": "This should be the root for find the Code Coverage Files."
+        },
+        {
             "name": "temporaryFolderForCodeCoverage",
             "type": "string",
             "label": "Temporary Code Coverage File Location",
@@ -65,6 +73,14 @@
             "defaultValue": "\\TestResults\\DynamicCodeCoverage.coveragexml",
             "required": true,
             "helpMarkDown": "The begin will be the temporaryFolderForCodeCoverage + whatever you add here e.g $(Agent.TempDirectory)\\TestResults\\DynamicCodeCoverage.coveragexml, where $(Agent.TempDirectory) will be something like d:\\a\\1"
+        },
+        {
+            "name": "codeCoverageArgs",
+            "type": "string",
+            "label": "Code Coverage Exe File Location",
+            "defaultValue": "analyze /output:",
+            "required": true,
+            "helpMarkDown": "Keep the /output: as last argument."
         },
         {
             "name": "codeCoverageExeFileLocation",

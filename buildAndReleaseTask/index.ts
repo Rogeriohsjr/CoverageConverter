@@ -41,27 +41,41 @@ function executeVsTestCodeCoverage(){
 }
 
 function getTemporaryDirectory(){
-    var tempDirectory: string = tl.getVariable(tl.getInput('temporaryFolderForCodeCoverage', true));
+    var inputTest = tl.getInput('temporaryFolderForCodeCoverage', true);
+    var tempDirectory: string = '';
+
+    tempDirectory = tl.getVariable(inputTest);
+
+    // If we don't find a variable, we will consider that as a Path
+    if(tempDirectory == undefined){
+        tempDirectory = inputTest;
+    }
     return tempDirectory;
 }
 
 function executeCodeCoverageAnalyze(){
     console.log('Starting executeCodeCoverageAnalyze...');
-
-    const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
-    const command : string =  "analyze /output:" + getTemporaryDirectory() + tl.getInput('temporaryFileCoveragexml', true);
-    
     const listFiles : string[] = findCoverageFiles();
-    listFiles.forEach(pPathFile => {
-        console.log('Converting this file[' + pPathFile + '] to fileCoverageXml');
-        exec('"' + codeCoverageExeFileLocation + '" ' + command + ' "' + pPathFile + '"', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-            console.error(`stderr: ${stderr}`);
-        });
+    const temporaryDirectoryPath : string = getTemporaryDirectory();
+    const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
+    const codeCoverageArg: string = tl.getInput('codeCoverageArgs', true);
+    const command : string =  codeCoverageArg + temporaryDirectoryPath + tl.getInput('temporaryFileCoveragexml', true);
+
+    var allPathFiles : string = '';
+    listFiles.forEach(fiPathFile => {
+        console.log('Converting this file[' + fiPathFile + '] to fileCoverageXml');
+        allPathFiles += allPathFiles == '' ? '' : ' ';
+        allPathFiles += '"' + fiPathFile + '"';
+    });
+
+    console.log('Converting All these files[' + allPathFiles + '] to fileCoverageXml');
+    exec('"' + codeCoverageExeFileLocation + '" ' + command + ' ' + allPathFiles, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
     });
 
     console.log('Ended executeCodeCoverageAnalyze...');
@@ -74,7 +88,7 @@ function findTestFiles(){
 }
 
 function findCoverageFiles(){
-    var searchFolder: string = tl.getInput('searchFolderForTestFiles');
+    var searchFolder: string = tl.getInput('searchFolderForCodeCoverageFile');
     var listTestFiles : string[] = ['**\\TestResults\\**\\*.coverage'];
     return findFiles(searchFolder, listTestFiles);
 }
