@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "build-release-task",
     "name": "Coverage Converter",
-    "version": "0.1.19",
+    "version": "0.1.21",
     "publisher": "rogeriohsjr",
     "targets": [
         {

@@ -3,7 +3,6 @@
 https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops#createpublisher
 
 # Upload
-
 https://marketplace.visualstudio.com/manage/publishers/rogeriohsjr
 
 # Help Commands to execute in localhost
@@ -25,6 +24,8 @@ tsc; node index.js
 
 # This will create a new extension
 tfx extension create --manifest-globs vss-extension.json
+
+tsc; cd..; tfx extension create --manifest-globs vss-extension.json
 
 
 https://github.com/danielpalme/ReportGenerator/wiki/Visual-Studio-Coverage-Tools#vstestconsoleexe
