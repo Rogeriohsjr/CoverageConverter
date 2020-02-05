@@ -1,5 +1,6 @@
 import tl = require('azure-pipelines-task-lib/task');
 import tr = require('azure-pipelines-task-lib/toolrunner');
+import { execSync } from 'child_process';
 const { exec, spawn } = require('child_process');
 
 async function run() {
@@ -8,6 +9,9 @@ async function run() {
         
         // 1. Execute VSTest.exe to generate the blabla.coverage file
         executeVsTestCodeCoverage();
+
+        // 2. Execute Code Coverage Analyze
+        executeCodeCoverageAnalyze();
 
         console.log('Ended Code Coverage.');
     }
@@ -24,17 +28,8 @@ function executeVsTestCodeCoverage(){
 
     listFiles.forEach(pPathFile => {
         console.log('Generating coverage for file [' + pPathFile + ']');
-        exec('"' + vsTestExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`exec error: ${error}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-            console.error(`stderr: ${stderr}`);
-
-            // 2. Execute Code Coverage Analyze
-            executeCodeCoverageAnalyze();
-        });
+        
+        execSync('"' + vsTestExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"');
     });
 
     console.log('Ended executeVsTestCodeCoverage...');
