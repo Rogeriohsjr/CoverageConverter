@@ -23,7 +23,12 @@ tsc
 tsc; node index.js
 
 # This will create a new extension
-tfx extension create --manifest-globs vss-extension.json
+
+1. Change the buildAndReleaseTask/task.json -> "Patch": 19 (add one version up)
+2. Change the vss-extension.json -> "version": "0.1.19" (add one version up)
+3. Compile, run the tsc; in buildandReleaseTask folder.
+4. Run the command below in root folder. 
+4.1. tfx extension create --manifest-globs vss-extension.json
 
 tsc; cd..; tfx extension create --manifest-globs vss-extension.json
 
