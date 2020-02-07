@@ -54,18 +54,25 @@ function executeCodeCoverageAnalyze(){
     const temporaryDirectoryPath : string = getTemporaryDirectory();
     const codeCoverageExeFileLocation: string = tl.getInput('codeCoverageExeFileLocation', true);
     const codeCoverageArg: string = tl.getInput('codeCoverageArgs', true);
-    const command : string =  codeCoverageArg + temporaryDirectoryPath + tl.getInput('temporaryFileCoveragexml', true);
+    var fileCoverageXml = tl.getInput('temporaryFileCoveragexml', true);
+    const command : string =  codeCoverageArg + temporaryDirectoryPath + fileCoverageXml;
 
     var allPathFiles : string = '';
     listFiles.forEach(fiPathFile => {
-        console.log('Converting this file[' + fiPathFile + '] to fileCoverageXml');
+        console.log('Converting this file[' + fiPathFile + '] to ' + fileCoverageXml);
         allPathFiles += allPathFiles == '' ? '' : ' ';
         allPathFiles += '"' + fiPathFile + '"';
     });
 
-    console.log('Converting All these files[' + allPathFiles + '] to fileCoverageXml');
-    
-    execSync('"' + codeCoverageExeFileLocation + '" ' + command + ' ' + allPathFiles);
+    console.log('Converting All these files[' + allPathFiles + '] to ' + fileCoverageXml);
+    exec('"' + codeCoverageExeFileLocation + '" ' + command + ' ' + allPathFiles, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+    });
 
     console.log('Ended executeCodeCoverageAnalyze...');
 }
