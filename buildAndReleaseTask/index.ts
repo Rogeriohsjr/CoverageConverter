@@ -29,7 +29,7 @@ function executeVsTestCodeCoverage(){
     listFiles.forEach(pPathFile => {
         console.log('Generating coverage for file [' + pPathFile + ']');
         
-        execSync('"' + vsTestExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"');
+        execSync('"' + vsTestExeFileLocation + '" "'+ pPathFile + '" ' + coverageCommand );
     });
 
     console.log('Ended executeVsTestCodeCoverage...');
