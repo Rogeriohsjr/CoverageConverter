@@ -13,8 +13,14 @@ $env:INPUT_LISTTESTFILES="**\\bin\\**\\*.Tests*.dll"
 $env:INPUT_SEARCHFOLDERFORCODECOVERAGEFILE="C:\\Workspace\\TaskAzureDevOps\\buildAndReleaseTask"
 $env:INPUT_TEMPORARYFOLDERFORCODECOVERAGE="C:\\Workspace\\TaskAzureDevOps\\Localhost"
 $env:INPUT_TEMPORARYFILECOVERAGEXML="\\TestResults\\DynamicCodeCoverage.coveragexml"
-$env:INPUT_CODECOVERAGEARGS="analyze /include_skipped_functions /output:"
+$env:INPUT_CODECOVERAGEARGS="analyze /output:"
 $env:INPUT_CODECOVERAGEEXEFILELOCATION="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Dynamic Code Coverage Tools\\CodeCoverage.exe"
+
+# Testing with filter on vstest
+$env:INPUT_VSTESTARGS="/EnableCodeCoverage /TestCaseFilter:`"Priority=1`""
+
+# Checking all the variables
+gci env:
 
 # Compile the Typescript
 tsc
@@ -22,7 +28,9 @@ tsc
 # Compile and Run Unit Test
 tsc; node index.js
 
-# This will create a new extension
+If we run this command above in localhost and it fails, check if you have deleted the "DynamicCodeCoverage.coveragexml" from localhost//TestResults. The run command doesn't override the file.
+
+# This will create a new extension/version
 
 1. Change the buildAndReleaseTask/task.json -> "Patch": 19 (add one version up)
 2. Change the vss-extension.json -> "version": "0.1.19" (add one version up)

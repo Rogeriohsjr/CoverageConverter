@@ -28,8 +28,8 @@ function executeVsTestCodeCoverage(){
 
     listFiles.forEach(pPathFile => {
         console.log('Generating coverage for file [' + pPathFile + ']');
-        
-        execSync('"' + vsTestExeFileLocation + '" ' + coverageCommand + ' "' + pPathFile + '"');
+        console.log('"' + vsTestExeFileLocation + '" "' + pPathFile + '" ' + coverageCommand + '');
+        execSync('"' + vsTestExeFileLocation + '" "' + pPathFile + '" ' + coverageCommand + '');
     });
 
     console.log('Ended executeVsTestCodeCoverage...');
@@ -59,19 +59,19 @@ function executeCodeCoverageAnalyze(){
 
     var allPathFiles : string = '';
     listFiles.forEach(fiPathFile => {
-        console.log('Converting this file[' + fiPathFile + '] to ' + fileCoverageXml);
+        console.log('Converting this file[' + fiPathFile + '] to [' + fileCoverageXml + ']');
         allPathFiles += allPathFiles == '' ? '' : ' ';
         allPathFiles += '"' + fiPathFile + '"';
     });
 
-    console.log('Converting All these files[' + allPathFiles + '] to ' + fileCoverageXml);
+    console.log('Converting All these files[' + allPathFiles + '] to [' + fileCoverageXml + ']');
     exec('"' + codeCoverageExeFileLocation + '" ' + command + ' ' + allPathFiles, (error, stdout, stderr) => {
         if (error) {
-            console.error(`exec error: ${error}`);
+            console.error(`Error unexpected! Error[${error}] `);
             return;
+        } else {
+            console.log('All the files were converted to one Coveragexml sucessfully.');
         }
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
     });
 
     console.log('Ended executeCodeCoverageAnalyze...');
