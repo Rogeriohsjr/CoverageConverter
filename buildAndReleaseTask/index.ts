@@ -17,6 +17,7 @@ async function run() {
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
+        console.error('[run] Error unexpected! Error[' + err.message + ']', err);
     }
 }
 
@@ -26,11 +27,15 @@ function executeVsTestCodeCoverage(){
     const coverageCommand: string = tl.getInput('vsTestArgs', true);
     const listFiles : string[] = findTestFiles();
 
+    let projectPaths = '';
     listFiles.forEach(pPathFile => {
         console.log('Generating coverage for file [' + pPathFile + ']');
-        console.log('"' + vsTestExeFileLocation + '" "' + pPathFile + '" ' + coverageCommand + '');
-        execSync('"' + vsTestExeFileLocation + '" "' + pPathFile + '" ' + coverageCommand + '');
+        projectPaths += '"' + pPathFile + '" ';
     });
+
+    console.log('Generating coverage for all files in one shot. [' + projectPaths + ']');
+    console.log('"' + vsTestExeFileLocation + '" ' + projectPaths + ' ' + coverageCommand + '');
+    execSync('"' + vsTestExeFileLocation + '" ' + projectPaths + ' ' + coverageCommand + '');
 
     console.log('Ended executeVsTestCodeCoverage...');
 }
@@ -67,7 +72,7 @@ function executeCodeCoverageAnalyze(){
     console.log('Converting All these files[' + allPathFiles + '] to [' + fileCoverageXml + ']');
     exec('"' + codeCoverageExeFileLocation + '" ' + command + ' ' + allPathFiles, (error, stdout, stderr) => {
         if (error) {
-            console.error(`Error unexpected! Error[${error}] `);
+            console.error(`[executeCodeCoverageAnalyze] Error unexpected! Error[${error}] `);
             return;
         } else {
             console.log('All the files were converted to one Coveragexml sucessfully.');

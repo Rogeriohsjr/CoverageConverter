@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <results>
   <modules>
-    <module name="testaspwebapp.dll" path="testaspwebapp.dll" id="4B81A09112C50A45B3BAF2D6D408A30701000000" block_coverage="23.44" line_coverage="9.84" blocks_covered="15" blocks_not_covered="49" lines_covered="6" lines_partially_covered="1" lines_not_covered="54">
+    <module name="testwebappproja.tests.dll" path="testwebappproja.tests.dll" id="68D6A414C449FB498C054E84B1110F6D01000000" block_coverage="93.55" line_coverage="93.33" blocks_covered="29" blocks_not_covered="2" lines_covered="14" lines_partially_covered="1" lines_not_covered="0">
       <functions>
-        <function id="8664" token="0x6000008" name="RegisterBundles(System.Web.Optimization.BundleCollection)" namespace="TestAspWebApp" type_name="BundleConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="20" lines_covered="0" lines_partially_covered="0" lines_not_covered="29">
+        <function id="8272" token="0x6000001" name="Index()" namespace="TestWebAppProjA.Tests.Controllers" type_name="HomeControllerTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="4" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="17" start_column="9" end_line="17" end_column="10" />
+            <range source_id="0" covered="yes" start_line="19" start_column="13" end_line="19" end_column="62" />
+            <range source_id="0" covered="yes" start_line="22" start_column="13" end_line="22" end_column="66" />
+            <range source_id="0" covered="yes" start_line="25" start_column="13" end_line="25" end_column="38" />
+            <range source_id="0" covered="yes" start_line="26" start_column="9" end_line="26" end_column="10" />
+          </ranges>
+        </function>
+        <function id="8312" token="0x6000002" name="About()" namespace="TestWebAppProjA.Tests.Controllers" type_name="HomeControllerTest" block_coverage="91.30" line_coverage="80.00" blocks_covered="21" blocks_not_covered="2" lines_covered="4" lines_partially_covered="1" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="30" start_column="9" end_line="30" end_column="10" />
+            <range source_id="0" covered="yes" start_line="32" start_column="13" end_line="32" end_column="62" />
+            <range source_id="0" covered="yes" start_line="35" start_column="13" end_line="35" end_column="66" />
+            <range source_id="0" covered="partial" start_line="38" start_column="13" end_line="38" end_column="91" />
+            <range source_id="0" covered="yes" start_line="39" start_column="9" end_line="39" end_column="10" />
+          </ranges>
+        </function>
+        <function id="8544" token="0x6000003" name="Contact()" namespace="TestWebAppProjA.Tests.Controllers" type_name="HomeControllerTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="4" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="43" start_column="9" end_line="43" end_column="10" />
+            <range source_id="0" covered="yes" start_line="45" start_column="13" end_line="45" end_column="62" />
+            <range source_id="0" covered="yes" start_line="48" start_column="13" end_line="48" end_column="68" />
+            <range source_id="0" covered="yes" start_line="51" start_column="13" end_line="51" end_column="38" />
+            <range source_id="0" covered="yes" start_line="52" start_column="9" end_line="52" end_column="10" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA.Tests\Controllers\HomeControllerTest.cs">
+        </source_file>
+      </source_files>
+    </module>
+    <module name="aspnetprojectwithnunit.dll" path="aspnetprojectwithnunit.dll" id="A49B541E8E868D449FB8FBB65E8A8BCE01000000" block_coverage="42.19" line_coverage="14.75" blocks_covered="27" blocks_not_covered="37" lines_covered="9" lines_partially_covered="2" lines_not_covered="50">
+      <functions>
+        <function id="8648" token="0x6000008" name="RegisterBundles(System.Web.Optimization.BundleCollection)" namespace="AspNetProjectWithNUnit" type_name="BundleConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="20" lines_covered="0" lines_partially_covered="0" lines_not_covered="29">
           <ranges>
             <range source_id="0" covered="no" start_line="10" start_column="9" end_line="10" end_column="10" />
             <range source_id="0" covered="no" start_line="11" start_column="13" end_line="12" end_column="59" />
@@ -14,14 +49,14 @@
             <range source_id="0" covered="no" start_line="28" start_column="9" end_line="28" end_column="10" />
           </ranges>
         </function>
-        <function id="8859" token="0x600000a" name="RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)" namespace="TestAspWebApp" type_name="FilterConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="3" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
+        <function id="8843" token="0x600000a" name="RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)" namespace="AspNetProjectWithNUnit" type_name="FilterConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="3" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
           <ranges>
             <range source_id="2" covered="no" start_line="9" start_column="9" end_line="9" end_column="10" />
             <range source_id="2" covered="no" start_line="10" start_column="13" end_line="10" end_column="53" />
             <range source_id="2" covered="no" start_line="11" start_column="9" end_line="11" end_column="10" />
           </ranges>
         </function>
-        <function id="8874" token="0x600000c" name="RegisterRoutes(System.Web.Routing.RouteCollection)" namespace="TestAspWebApp" type_name="RouteConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="4" lines_covered="0" lines_partially_covered="0" lines_not_covered="12">
+        <function id="8858" token="0x600000c" name="RegisterRoutes(System.Web.Routing.RouteCollection)" namespace="AspNetProjectWithNUnit" type_name="RouteConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="4" lines_covered="0" lines_partially_covered="0" lines_not_covered="12">
           <ranges>
             <range source_id="4" covered="no" start_line="13" start_column="9" end_line="13" end_column="10" />
             <range source_id="4" covered="no" start_line="14" start_column="13" end_line="14" end_column="62" />
@@ -29,7 +64,7 @@
             <range source_id="4" covered="no" start_line="21" start_column="9" end_line="21" end_column="10" />
           </ranges>
         </function>
-        <function id="8926" token="0x600000e" name="Application_Start()" namespace="TestAspWebApp" type_name="MvcApplication" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="8" lines_covered="0" lines_partially_covered="0" lines_not_covered="6">
+        <function id="8910" token="0x600000e" name="Application_Start()" namespace="AspNetProjectWithNUnit" type_name="MvcApplication" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="8" lines_covered="0" lines_partially_covered="0" lines_not_covered="6">
           <ranges>
             <range source_id="3" covered="no" start_line="14" start_column="9" end_line="14" end_column="10" />
             <range source_id="3" covered="no" start_line="15" start_column="13" end_line="15" end_column="49" />
@@ -39,14 +74,14 @@
             <range source_id="3" covered="no" start_line="19" start_column="9" end_line="19" end_column="10" />
           </ranges>
         </function>
-        <function id="8980" token="0x6000010" name="Index()" namespace="TestAspWebApp.Controllers" type_name="HomeController" block_coverage="100.00" line_coverage="100.00" blocks_covered="3" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+        <function id="8964" token="0x6000010" name="Index()" namespace="AspNetProjectWithNUnit.Controllers" type_name="HomeController" block_coverage="100.00" line_coverage="100.00" blocks_covered="3" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
           <ranges>
             <range source_id="1" covered="yes" start_line="12" start_column="9" end_line="12" end_column="10" />
             <range source_id="1" covered="yes" start_line="13" start_column="13" end_line="13" end_column="27" />
             <range source_id="1" covered="yes" start_line="14" start_column="9" end_line="14" end_column="10" />
           </ranges>
         </function>
-        <function id="9004" token="0x6000011" name="About()" namespace="TestAspWebApp.Controllers" type_name="HomeController" block_coverage="92.31" line_coverage="75.00" blocks_covered="12" blocks_not_covered="1" lines_covered="3" lines_partially_covered="1" lines_not_covered="0">
+        <function id="8988" token="0x6000011" name="About()" namespace="AspNetProjectWithNUnit.Controllers" type_name="HomeController" block_coverage="92.31" line_coverage="75.00" blocks_covered="12" blocks_not_covered="1" lines_covered="3" lines_partially_covered="1" lines_not_covered="0">
           <ranges>
             <range source_id="1" covered="yes" start_line="17" start_column="9" end_line="17" end_column="10" />
             <range source_id="1" covered="partial" start_line="18" start_column="13" end_line="18" end_column="68" />
@@ -54,60 +89,135 @@
             <range source_id="1" covered="yes" start_line="21" start_column="9" end_line="21" end_column="10" />
           </ranges>
         </function>
-        <function id="9128" token="0x6000012" name="Contact()" namespace="TestAspWebApp.Controllers" type_name="HomeController" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="13" lines_covered="0" lines_partially_covered="0" lines_not_covered="4">
+        <function id="9112" token="0x6000012" name="Contact()" namespace="AspNetProjectWithNUnit.Controllers" type_name="HomeController" block_coverage="92.31" line_coverage="75.00" blocks_covered="12" blocks_not_covered="1" lines_covered="3" lines_partially_covered="1" lines_not_covered="0">
           <ranges>
-            <range source_id="1" covered="no" start_line="24" start_column="9" end_line="24" end_column="10" />
-            <range source_id="1" covered="no" start_line="25" start_column="13" end_line="25" end_column="52" />
-            <range source_id="1" covered="no" start_line="27" start_column="13" end_line="27" end_column="27" />
-            <range source_id="1" covered="no" start_line="28" start_column="9" end_line="28" end_column="10" />
+            <range source_id="1" covered="yes" start_line="24" start_column="9" end_line="24" end_column="10" />
+            <range source_id="1" covered="partial" start_line="25" start_column="13" end_line="25" end_column="52" />
+            <range source_id="1" covered="yes" start_line="27" start_column="13" end_line="27" end_column="27" />
+            <range source_id="1" covered="yes" start_line="28" start_column="9" end_line="28" end_column="10" />
           </ranges>
         </function>
       </functions>
       <source_files>
-        <source_file id="0" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp\App_Start\BundleConfig.cs">
+        <source_file id="0" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit\App_Start\BundleConfig.cs">
         </source_file>
-        <source_file id="1" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp\Controllers\HomeController.cs">
+        <source_file id="1" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit\Controllers\HomeController.cs">
         </source_file>
-        <source_file id="2" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp\App_Start\FilterConfig.cs">
+        <source_file id="2" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit\App_Start\FilterConfig.cs">
         </source_file>
-        <source_file id="3" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp\Global.asax.cs">
+        <source_file id="3" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit\Global.asax.cs">
         </source_file>
-        <source_file id="4" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp\App_Start\RouteConfig.cs">
+        <source_file id="4" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit\App_Start\RouteConfig.cs">
         </source_file>
       </source_files>
     </module>
-    <module name="testaspwebapp.tests.dll" path="testaspwebapp.tests.dll" id="8449A46B2DB6E74387086EC2ABE1B38D01000000" block_coverage="80.65" line_coverage="60.00" blocks_covered="25" blocks_not_covered="6" lines_covered="9" lines_partially_covered="1" lines_not_covered="5">
+    <module name="testwebappproja.dll" path="testwebappproja.dll" id="A7FD596A6AC4A544A144420D60DFDAEF01000000" block_coverage="42.19" line_coverage="14.75" blocks_covered="27" blocks_not_covered="37" lines_covered="9" lines_partially_covered="2" lines_not_covered="50">
       <functions>
-        <function id="8272" token="0x6000001" name="Index()" namespace="TestAspWebApp.Tests.Controllers" type_name="HomeControllerTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="4" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
+        <function id="8724" token="0x6000008" name="RegisterBundles(System.Web.Optimization.BundleCollection)" namespace="TestWebAppProjA" type_name="BundleConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="20" lines_covered="0" lines_partially_covered="0" lines_not_covered="29">
           <ranges>
-            <range source_id="0" covered="yes" start_line="18" start_column="9" end_line="18" end_column="10" />
-            <range source_id="0" covered="yes" start_line="20" start_column="13" end_line="20" end_column="62" />
-            <range source_id="0" covered="yes" start_line="23" start_column="13" end_line="23" end_column="66" />
-            <range source_id="0" covered="yes" start_line="26" start_column="13" end_line="26" end_column="38" />
-            <range source_id="0" covered="yes" start_line="27" start_column="9" end_line="27" end_column="10" />
+            <range source_id="0" covered="no" start_line="10" start_column="9" end_line="10" end_column="10" />
+            <range source_id="0" covered="no" start_line="11" start_column="13" end_line="12" end_column="59" />
+            <range source_id="0" covered="no" start_line="14" start_column="13" end_line="15" end_column="56" />
+            <range source_id="0" covered="no" start_line="19" start_column="13" end_line="20" end_column="51" />
+            <range source_id="0" covered="no" start_line="22" start_column="13" end_line="23" end_column="50" />
+            <range source_id="0" covered="no" start_line="25" start_column="13" end_line="27" end_column="46" />
+            <range source_id="0" covered="no" start_line="28" start_column="9" end_line="28" end_column="10" />
           </ranges>
         </function>
-        <function id="8312" token="0x6000002" name="About()" namespace="TestAspWebApp.Tests.Controllers" type_name="HomeControllerTest" block_coverage="91.30" line_coverage="80.00" blocks_covered="21" blocks_not_covered="2" lines_covered="4" lines_partially_covered="1" lines_not_covered="0">
+        <function id="8919" token="0x600000a" name="RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)" namespace="TestWebAppProjA" type_name="FilterConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="3" lines_covered="0" lines_partially_covered="0" lines_not_covered="3">
           <ranges>
-            <range source_id="0" covered="yes" start_line="32" start_column="9" end_line="32" end_column="10" />
-            <range source_id="0" covered="yes" start_line="34" start_column="13" end_line="34" end_column="62" />
-            <range source_id="0" covered="yes" start_line="37" start_column="13" end_line="37" end_column="66" />
-            <range source_id="0" covered="partial" start_line="40" start_column="13" end_line="40" end_column="91" />
-            <range source_id="0" covered="yes" start_line="41" start_column="9" end_line="41" end_column="10" />
+            <range source_id="2" covered="no" start_line="9" start_column="9" end_line="9" end_column="10" />
+            <range source_id="2" covered="no" start_line="10" start_column="13" end_line="10" end_column="53" />
+            <range source_id="2" covered="no" start_line="11" start_column="9" end_line="11" end_column="10" />
           </ranges>
         </function>
-        <function id="8544" token="0x6000003" name="Contact()" namespace="TestAspWebApp.Tests.Controllers" type_name="HomeControllerTest" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="4" lines_covered="0" lines_partially_covered="0" lines_not_covered="5">
+        <function id="8934" token="0x600000c" name="RegisterRoutes(System.Web.Routing.RouteCollection)" namespace="TestWebAppProjA" type_name="RouteConfig" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="4" lines_covered="0" lines_partially_covered="0" lines_not_covered="12">
           <ranges>
-            <range source_id="0" covered="no" start_line="45" start_column="9" end_line="45" end_column="10" />
-            <range source_id="0" covered="no" start_line="47" start_column="13" end_line="47" end_column="62" />
-            <range source_id="0" covered="no" start_line="50" start_column="13" end_line="50" end_column="68" />
-            <range source_id="0" covered="no" start_line="53" start_column="13" end_line="53" end_column="38" />
-            <range source_id="0" covered="no" start_line="54" start_column="9" end_line="54" end_column="10" />
+            <range source_id="4" covered="no" start_line="13" start_column="9" end_line="13" end_column="10" />
+            <range source_id="4" covered="no" start_line="14" start_column="13" end_line="14" end_column="62" />
+            <range source_id="4" covered="no" start_line="16" start_column="13" end_line="20" end_column="15" />
+            <range source_id="4" covered="no" start_line="21" start_column="9" end_line="21" end_column="10" />
+          </ranges>
+        </function>
+        <function id="8986" token="0x600000e" name="Application_Start()" namespace="TestWebAppProjA" type_name="MvcApplication" block_coverage="0.00" line_coverage="0.00" blocks_covered="0" blocks_not_covered="8" lines_covered="0" lines_partially_covered="0" lines_not_covered="6">
+          <ranges>
+            <range source_id="3" covered="no" start_line="14" start_column="9" end_line="14" end_column="10" />
+            <range source_id="3" covered="no" start_line="15" start_column="13" end_line="15" end_column="49" />
+            <range source_id="3" covered="no" start_line="16" start_column="13" end_line="16" end_column="71" />
+            <range source_id="3" covered="no" start_line="17" start_column="13" end_line="17" end_column="59" />
+            <range source_id="3" covered="no" start_line="18" start_column="13" end_line="18" end_column="63" />
+            <range source_id="3" covered="no" start_line="19" start_column="9" end_line="19" end_column="10" />
+          </ranges>
+        </function>
+        <function id="9040" token="0x6000010" name="Index()" namespace="TestWebAppProjA.Controllers" type_name="HomeController" block_coverage="100.00" line_coverage="100.00" blocks_covered="3" blocks_not_covered="0" lines_covered="3" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" covered="yes" start_line="12" start_column="9" end_line="12" end_column="10" />
+            <range source_id="1" covered="yes" start_line="13" start_column="13" end_line="13" end_column="27" />
+            <range source_id="1" covered="yes" start_line="14" start_column="9" end_line="14" end_column="10" />
+          </ranges>
+        </function>
+        <function id="9064" token="0x6000011" name="About()" namespace="TestWebAppProjA.Controllers" type_name="HomeController" block_coverage="92.31" line_coverage="75.00" blocks_covered="12" blocks_not_covered="1" lines_covered="3" lines_partially_covered="1" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" covered="yes" start_line="17" start_column="9" end_line="17" end_column="10" />
+            <range source_id="1" covered="partial" start_line="18" start_column="13" end_line="18" end_column="68" />
+            <range source_id="1" covered="yes" start_line="20" start_column="13" end_line="20" end_column="27" />
+            <range source_id="1" covered="yes" start_line="21" start_column="9" end_line="21" end_column="10" />
+          </ranges>
+        </function>
+        <function id="9188" token="0x6000012" name="Contact()" namespace="TestWebAppProjA.Controllers" type_name="HomeController" block_coverage="92.31" line_coverage="75.00" blocks_covered="12" blocks_not_covered="1" lines_covered="3" lines_partially_covered="1" lines_not_covered="0">
+          <ranges>
+            <range source_id="1" covered="yes" start_line="24" start_column="9" end_line="24" end_column="10" />
+            <range source_id="1" covered="partial" start_line="25" start_column="13" end_line="25" end_column="52" />
+            <range source_id="1" covered="yes" start_line="27" start_column="13" end_line="27" end_column="27" />
+            <range source_id="1" covered="yes" start_line="28" start_column="9" end_line="28" end_column="10" />
           </ranges>
         </function>
       </functions>
       <source_files>
-        <source_file id="0" path="C:\Workspace\TestAspWebApp\TestAspWebApp\TestAspWebApp.Tests\Controllers\HomeControllerTest.cs">
+        <source_file id="0" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA\App_Start\BundleConfig.cs">
+        </source_file>
+        <source_file id="1" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA\Controllers\HomeController.cs">
+        </source_file>
+        <source_file id="2" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA\App_Start\FilterConfig.cs">
+        </source_file>
+        <source_file id="3" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA\Global.asax.cs">
+        </source_file>
+        <source_file id="4" path="C:\Workspace\ExamplePipelineProject\TestWebAppProjA\TestWebAppProjA\App_Start\RouteConfig.cs">
+        </source_file>
+      </source_files>
+    </module>
+    <module name="aspnetprojectwithnunit.tests.dll" path="aspnetprojectwithnunit.tests.dll" id="AE5A2AED8EBECD4CA65DBC64CBE2936601000000" block_coverage="93.55" line_coverage="93.33" blocks_covered="29" blocks_not_covered="2" lines_covered="14" lines_partially_covered="1" lines_not_covered="0">
+      <functions>
+        <function id="8272" token="0x6000001" name="Index()" namespace="AspNetProjectWithNUnit.Tests.Controllers" type_name="HomeControllerTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="4" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="17" start_column="9" end_line="17" end_column="10" />
+            <range source_id="0" covered="yes" start_line="19" start_column="13" end_line="19" end_column="62" />
+            <range source_id="0" covered="yes" start_line="22" start_column="13" end_line="22" end_column="66" />
+            <range source_id="0" covered="yes" start_line="25" start_column="13" end_line="25" end_column="38" />
+            <range source_id="0" covered="yes" start_line="26" start_column="9" end_line="26" end_column="10" />
+          </ranges>
+        </function>
+        <function id="8312" token="0x6000002" name="About()" namespace="AspNetProjectWithNUnit.Tests.Controllers" type_name="HomeControllerTest" block_coverage="91.30" line_coverage="80.00" blocks_covered="21" blocks_not_covered="2" lines_covered="4" lines_partially_covered="1" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="30" start_column="9" end_line="30" end_column="10" />
+            <range source_id="0" covered="yes" start_line="32" start_column="13" end_line="32" end_column="62" />
+            <range source_id="0" covered="yes" start_line="35" start_column="13" end_line="35" end_column="66" />
+            <range source_id="0" covered="partial" start_line="38" start_column="13" end_line="38" end_column="91" />
+            <range source_id="0" covered="yes" start_line="39" start_column="9" end_line="39" end_column="10" />
+          </ranges>
+        </function>
+        <function id="8544" token="0x6000003" name="Contact()" namespace="AspNetProjectWithNUnit.Tests.Controllers" type_name="HomeControllerTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="4" blocks_not_covered="0" lines_covered="5" lines_partially_covered="0" lines_not_covered="0">
+          <ranges>
+            <range source_id="0" covered="yes" start_line="43" start_column="9" end_line="43" end_column="10" />
+            <range source_id="0" covered="yes" start_line="45" start_column="13" end_line="45" end_column="62" />
+            <range source_id="0" covered="yes" start_line="48" start_column="13" end_line="48" end_column="68" />
+            <range source_id="0" covered="yes" start_line="51" start_column="13" end_line="51" end_column="38" />
+            <range source_id="0" covered="yes" start_line="52" start_column="9" end_line="52" end_column="10" />
+          </ranges>
+        </function>
+      </functions>
+      <source_files>
+        <source_file id="0" path="C:\Workspace\ExamplePipelineProject\AspNetProjectWithNUnit\AspNetProjectWithNUnit.Tests\Controllers\HomeControllerTest.cs">
         </source_file>
       </source_files>
     </module>
